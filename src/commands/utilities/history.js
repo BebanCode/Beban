@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('View the top 10 lists of your purchase history.')
         .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages)
         .addBooleanOption((option) => option
-            .setName('display').setDescription('Option to display messages publicly or not.').setRequired(false)),
+            .setName('display').setDescription('Option to display messages publicly or not.').setRequired(true)),
 
     async execute(interaction, client) {
         await history.find({ userId: interaction.user.id }).sort({ amount: -1 }).limit(10).then(async (historysData) => {
@@ -28,12 +28,11 @@ module.exports = {
                         .setDescription(`${historyResult.join('\n\n') || '-'}`)
                         .addFields([
                             {name: 'TOTAL PURCHASES', value: `\`\`\`${(totalAmount).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 0 })},-\`\`\``, inline: true},
-                            {name: 'LAST PURCHASES', value: `\`\`\`${lastHistory[0].date}\`\`\``, inline: true},
                         ])
                         .setColor(config.embed.color)
         
                     if (interaction.options.getBoolean('display') === true) {
-                        return interaction.reply({ embeds: [Embed], ephemeral: true});
+                        return interaction.reply({ embeds: [Embed], ephemeral: false});
                     } else {
                         return interaction.reply({ embeds: [Embed], ephemeral: true });
                     }
