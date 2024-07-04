@@ -8,7 +8,7 @@
  * @INFO
  * Bot Coded by Junet with the help Fijar & LunarTaku Code | https://github.com/BebanCode | https://github.com/LunarTaku
  * @INFO
- *  Beban Store Bot | https://dsc.gg/bebanserver
+ * Support Server | https://dsc.gg/bebanserver
  * @INFO
  * Do Not Remove Credits
  * @INFO
