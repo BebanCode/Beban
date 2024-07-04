@@ -1,10 +1,6 @@
-
-██████╗░███████╗██████╗░░█████╗░███╗░░██╗
-██╔══██╗██╔════╝██╔══██╗██╔══██╗████╗░██║
-██████╦╝█████╗░░██████╦╝███████║██╔██╗██║
-██╔══██╗██╔══╝░░██╔══██╗██╔══██║██║╚████║
-██████╦╝███████╗██████╦╝██║░░██║██║░╚███║
-╚═════╝░╚══════╝╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=rounded&height=200&color=gradient&text=Beban&animation=twinkling&fontColor=000000"/> 
+</p>
  * @INFO
  * Bot Coded by Junet with the help Fijar & LunarTaku Code | https://github.com/BebanCode | https://github.com/LunarTaku
  * @INFO
