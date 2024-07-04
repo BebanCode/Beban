@@ -16,17 +16,13 @@ const config = require("../../config");
           .addUserOption((option) => {
             return option
               .setName("user")
-              .setDescription("The user to warn")
-              .setRequired(true);
-          })
+              .setDescription("The user to warn").setRequired(true);
+            })
           .addStringOption((option) => {
             return option
               .setName("reason")
-              .setDescription("The reason for the warn")
-              .setRequired(true)
-              .setMinLength(5)
-              .setMaxLength(500);
-          })
+              .setDescription("The reason for the warn").setRequired(true).setMinLength(5).setMaxLength(500);
+            })
       )
       .addSubcommand((subCmd) =>
         subCmd
@@ -35,8 +31,7 @@ const config = require("../../config");
           .addStringOption((option) => {
             return option
               .setName("warn_id")
-              .setDescription("The id of the warn to remove")
-              .setRequired(true);
+              .setDescription("The id of the warn to remove").setRequired(true);
           })
       ),
   
@@ -45,6 +40,7 @@ const config = require("../../config");
      * @param {ChatInputCommandInteraction} interaction
      * @param {Client} client
      */
+    
     async execute(interaction, client) {
       switch (interaction.options.getSubcommand()) {
         case "add":

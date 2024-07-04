@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, PermissionsBitField } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require('@discordjs/builders');
 const config = require('../../config');
  
 module.exports = {
@@ -7,22 +6,35 @@ module.exports = {
     .setDMPermission(false)
     .setName('create-embed')
     .setDescription('Create an embed.')
-    .addStringOption(option => option.setName('title').setDescription('The title of your embed').setRequired(true))
-    .addStringOption(option => option.setName('description').setDescription('The description of your embed').setRequired(true))
-    .addBooleanOption(option => option.setName('timestamp').setDescription('Add a timestamp to your embed').setRequired(true))
-    .addStringOption(option => option.setName('color').setDescription('(HEX) The color of your embed. DEFAULT: white').setMaxLength(6).setMinLength(6).setRequired(false))
-    .addStringOption(option => option.setName('image_link').setDescription('The image of your embed').setRequired(false))
-    .addStringOption(option => option.setName('thumbnail_link').setDescription('The thumbnail of your embed').setRequired(false))
-    .addStringOption(option => option.setName('field-name').setDescription('The field name of your embed (BOTH FIELD OPTIONS ARE REQUIRED IF YOU USE ONE)').setRequired(false))
-    .addStringOption(option => option.setName('field-value').setDescription('The field value of your embed (BOTH FIELD OPTIONS ARE REQUIRED IF YOU USE ONE)').setRequired(false))
-    .addStringOption(option => option.setName('footer').setDescription('The footer of your embed').setRequired(false)),
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
+    .addStringOption(option => option
+        .setName('title')
+        .setDescription('The title of your embed.').setRequired(true))
+    .addStringOption(option => option
+        .setName('description')
+        .setDescription('The description of your embed.').setRequired(true))
+    .addBooleanOption(option => option
+        .setName('timestamp').setDescription('Add a timestamp to your embed.').setRequired(true))
+    .addStringOption(option => option
+        .setName('color')
+        .setDescription('(HEX) The color of your embed. DEFAULT: white.').setMaxLength(6).setMinLength(6).setRequired(false))
+    .addStringOption(option => option
+        .setName('image_link')
+        .setDescription('The image of your embed.').setRequired(false))
+    .addStringOption(option => option
+        .setName('thumbnail_link')
+        .setDescription('The thumbnail of your embed.').setRequired(false))
+    .addStringOption(option => option
+        .setName('field-name')
+        .setDescription('The field name of your embed (BOTH FIELD OPTIONS ARE REQUIRED IF YOU USE ONE).').setRequired(false))
+    .addStringOption(option => option
+        .setName('field-value').setDescription('The field value of your embed (BOTH FIELD OPTIONS ARE REQUIRED IF YOU USE ONE).').setRequired(false))
+    .addStringOption(option => option
+        .setName('footer')
+        .setDescription('The footer of your embed.').setRequired(false)),
  
-    async execute (interaction, client) {
-        
-        const op = interaction.options
- 
-        if(!interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) return await interaction.reply({ content: '**You do not have the permissions to use this command**', ephemeral: true})
- 
+    async execute (interaction, client) {       
+        const op = interaction.options 
         const title = op.getString('title');
         const description = op.getString('description');
         const timestamp = op.getBoolean('timestamp');
@@ -66,7 +78,7 @@ module.exports = {
         await interaction.channel.send({ embeds: [embed] })
     } catch (err) {
         const embed = new EmbedBuilder()
-        .setColor(config.embed.color)
+        .setColor(config.embed.errcolor)
         .setTitle('Error')
         .setDescription("There was an error creating your embed")
         await interaction.reply({ embeds: [embed], ephemeral: true})

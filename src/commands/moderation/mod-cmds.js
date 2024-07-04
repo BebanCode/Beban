@@ -11,60 +11,43 @@ const config = require("../../config");
         PermissionFlagsBits.BanMembers,
         PermissionFlagsBits.ModerateMembers
       )
-      .addSubcommand((subcommand) =>
-        subcommand
+      .addSubcommand((subcommand) => subcommand
           .setName("kick")
           .setDescription("Kick a member!")
-  
-          .addUserOption((option) =>
-            option
+          .addUserOption((option) => option
               .setName("target")
-              .setDescription("User to kick.")
-              .setRequired(true)
-          )
-          .addStringOption((option) =>
-            option.setName("reason").setDescription("Reason for the kick.")
-          )
-      )
-      .addSubcommand((subcommand) =>
-        subcommand
+              .setDescription("User to kick.").setRequired(true))
+          .addStringOption((option) => option
+          .setName("reason")
+          .setDescription("Reason for the kick.")))
+      .addSubcommand((subcommand) => subcommand
           .setName("ban")
           .setDescription("ban a member!")
-          .addUserOption((option) =>
-            option
+          .addUserOption((option) => option
               .setName("target")
-              .setDescription("User to ban.")
-              .setRequired(true)
-          )
-          .addStringOption((option) =>
-            option.setName("reason").setDescription("Reason for the ban.")
-          )
-      )
-      .addSubcommand((subcommand) =>
-        subcommand
+              .setDescription("User to ban.").setRequired(true))
+          .addStringOption((option) => option
+          .setName("reason")
+          .setDescription("Reason for the ban.")))
+      .addSubcommand((subcommand) => subcommand
           .setName("timeout")
           .setDescription("Timeout a member!")
-          .addUserOption((option) =>
-            option
+          .addUserOption((option) => option
               .setName("target")
-              .setDescription("User to timeout.")
-              .setRequired(true)
-          )
-          .addIntegerOption((option) =>
-            option
+              .setDescription("User to timeout.").setRequired(true))
+          .addIntegerOption((option) => option
               .setName("time")
-              .setDescription("Time in minutes to timeout the member.")
-          )
-          .addStringOption((option) =>
-            option.setName("reason").setDescription("Reason for the timeout.")
-          )
-      ),
+              .setDescription("Time in minutes to timeout the member."))
+          .addStringOption((option) => option
+          .setName("reason")
+          .setDescription("Reason for the timeout."))),
   
     /**
      *
      * @param {ChatInputCommandInteraction} interaction
      * @param {Client} client
      */
+    
     async execute(interaction, client) {
       if (interaction.options.getSubcommand() === "kick") {
         const user = interaction.options.getUser("target");

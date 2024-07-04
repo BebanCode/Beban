@@ -24,7 +24,7 @@ module.exports = {
             });
         } catch (error) {
             console.error(error);
-            interaction.reply('⚠️Error. :v');
+            interaction.reply(`⚠️Error :v \`\`${error}\`\``);
         }
     },
 };

@@ -5,14 +5,13 @@ module.exports = {
     .setName('give-role')
     .setDescription('Give a user a role.')
     .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
-    .addUserOption(option =>
-      option.setName('user')
-        .setDescription('The user to give the role to.')
-        .setRequired(true))
-    .addRoleOption(option =>
-      option.setName('role')
-        .setDescription('The role to give to the user.')
-        .setRequired(true)),
+    .addUserOption(option => option
+      .setName('user')
+      .setDescription('The user to give the role to.').setRequired(true))
+    .addRoleOption(option => option
+      .setName('role')
+      .setDescription('The role to give to the user.').setRequired(true)),
+      
   async execute(interaction) {
     const guild = interaction.guild;
     const member = guild.members.cache.get(interaction.options.getUser('user').id);

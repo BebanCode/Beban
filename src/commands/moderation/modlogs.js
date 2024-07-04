@@ -8,40 +8,29 @@ const config = require("../../config");
       .setName("modlogs")
       .setDescription("Setup or edit the modlogs.")
       .setDefaultMemberPermissions(PermissionFlagsBits.ModerateMembers)
-      .addSubcommand((subcommand) =>
-        subcommand
+      .addSubcommand((subcommand) => subcommand
           .setName("setup")
           .setDescription("Setup the modlogs.")
-          .addChannelOption((option) =>
-            option
+          .addChannelOption((option) => option
               .setName("channel")
               .setDescription("Channel to send the message to.")
-              .addChannelTypes(ChannelType.GuildText)
-              .setRequired(true)
-          )
-      )
-      .addSubcommand((subcommand) =>
-        subcommand
+              .addChannelTypes(ChannelType.GuildText).setRequired(true)))
+      .addSubcommand((subcommand) => subcommand
           .setName("replace_channel")
           .setDescription("Replace the channel for the modlogs.")
-          .addChannelOption((option) =>
-            option
+          .addChannelOption((option) => option
               .setName("channel")
               .setDescription("Channel to send the message to.")
-              .addChannelTypes(ChannelType.GuildText)
-              .setRequired(true)
-          )
-      )
-      .addSubcommand((subcommand) =>
-        subcommand
+              .addChannelTypes(ChannelType.GuildText).setRequired(true)))
+      .addSubcommand((subcommand) => subcommand
           .setName("delete")
-          .setDescription("Deletes config for the modlogs.")
-      ),
+          .setDescription("Deletes config for the modlogs.")),
   
     /**
      *
      * @param {ChatInputCommandInteraction} interaction
      */
+    
     async execute(interaction) {
       const getSubCommand = interaction.options.getSubcommand();
       if (getSubCommand === "setup") {
