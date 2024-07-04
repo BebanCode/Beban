@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://capsule-render.vercel.app/api?type=rounded&height=200&color=gradient&text=Beban&animation=twinkling&fontColor=000000"/> 
+<img src="https://capsule-render.vercel.app/api?type=rounded&height=120&color=gradient&text=Beban&animation=twinkling&fontColor=000000"/> 
 </p>
 
  * @INFO
