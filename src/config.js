@@ -4,8 +4,7 @@ module.exports = {
         id: '', // Ambil discord bot id yang bisa diambil di https://discord.com/developers/applications
         guild: '', // Ambil server id sebagai server developer untuk bot ini
         database: '',  // Ambil url database di https://mongodb.com/ ( tutorial pembuatan dan pengambilan https://www.youtube.com/watch?v=HhHzCfrqsoE&t=192s&pp=ygUZaG93IHRvIGNyZWF0ZSBtb25nb2RiIHVybA%3D%3D )
-        statusch: '', // Channel status store 
-
+        prodiakey: '', // Ambil API key nya di https://prodia.com
 },
     embed: {
         color: '#2b2e35',  // Dapat diubah dengan color hex lain ( Default = Transparan )
