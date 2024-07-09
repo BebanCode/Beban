@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, PermissionFlagsBits, AttachmentBuilder, EmbedBuilder } = require("discord.js");
 const { Prodia } = require("prodia.js");
-const prodia = new Prodia("3236357f-c0b7-44c2-9245-a086b5827ba3");
+const config = require("../../config")
+const prodia = new Prodia(config.client.prodiakey);
 const { aspectRatio, styles } = require("../../data/choices")
 
 
