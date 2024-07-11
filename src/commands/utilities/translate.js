@@ -18,7 +18,7 @@ module.exports = {
 
     async execute(interaction) {
         const text = interaction.options.getString('text');
-        const lang = interaction.option.getString('language');
+        const lang = interaction.options.getString('language');
         const hehe = await translate(text, { to: `${lang}` });
         const embed = new EmbedBuilder()
             .setColor(config.embed.color)
