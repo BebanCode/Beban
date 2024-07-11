@@ -22,15 +22,15 @@ module.exports = {
         const hehe = await translate(text, { to: `${lang}` });
         const embed = new EmbedBuilder()
             .setColor(config.embed.color)
-            .setTitle('🔎Translate Success')
+            .setTitle('🔎 Translate Success')
             .addFields({ name: 'Old Text', value: `\`\`\`${text}\`\`\``, inline: false})
             .addFields({ name: 'Translated Text', value: `\`\`\`${hehe.text}\`\`\``, inline: false});
         
             try {
-                await interaction.reply({ content: '🌍Translating text...', ephemeral: true })
-                await interaction.editReply({ content: '', embeds: [embed], ephemeral: true })
+                await interaction.reply({ content: '🌍 Translating text...', ephemeral: false })
+                await interaction.editReply({ content: '', embeds: [embed], ephemeral: false })
             } catch (err) {
-                await interaction.editReply({ content: '❌ Something went wrong.', ephemeral: true })
+                await interaction.editReply({ content: '❌ Something went wrong.', ephemeral: false })
             }
     }
 }
