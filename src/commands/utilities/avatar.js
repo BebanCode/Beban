@@ -7,7 +7,8 @@ module.exports = {
         .setDescription("Check the targetet user's avatar")
         .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages)
         .addUserOption((option) => option
-            .setName('target').setDescription('Target.').setRequired(true)),
+            .setName('target')
+            .setDescription('Target.').setRequired(true)),
 
     async execute(interaction) {
         const tagged = interaction.options.getUser('target');

@@ -24,4 +24,15 @@ const aspectRatio = [
     { name: "square", value: "square" }
 ]
 
-module.exports = { styles, aspectRatio }
+const bahasa = [
+    { name: "English", value: "en" },
+    { name: "French", value: "fr" },
+    { name: "German", value: "de" },
+    { name: "Italian", value: "it" },
+    { name: "Portugese", value: "pt" },
+    { name: "Russian", value: "ru" },
+    { name: "Japanesse", value: "ja"},
+    { name: "Indonesian", value: "id" }
+]
+
+module.exports = { styles, aspectRatio, bahasa }

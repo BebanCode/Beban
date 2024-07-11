@@ -8,7 +8,8 @@ module.exports = {
         .setDescription('View the top 10 lists of your purchase history.')
         .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages)
         .addBooleanOption((option) => option
-            .setName('display').setDescription('Option to display messages publicly or not.').setRequired(true)),
+            .setName('display')
+            .setDescription('Option to display messages publicly or not.').setRequired(true)),
 
     async execute(interaction, client) {
         await history.find({ userId: interaction.user.id }).sort({ amount: -1 }).limit(10).then(async (historysData) => {
