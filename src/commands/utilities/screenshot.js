@@ -1,7 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder, AttachmentBuilder } = require("discord.js");
 const puppeteer = require("puppeteer");
 const config = require("../../config");
-const urlValidator = require("url-validator");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -30,11 +29,6 @@ module.exports = {
     let url = interaction.options.getString('url');
     if (!url.startsWith('http://') &&!url.startsWith('https://')) {
       url = `http://${url}`;
-    }
-
-    if (!urlValidator.isValid(url)) {
-      interaction.reply({ content: 'Invalid URL', ephemeral: true });
-      return;
     }
 
     const reso = interaction.options.getString('resolution');
