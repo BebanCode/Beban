@@ -14,24 +14,24 @@ module.exports = {
        .setDescription("The text to convert to an image.").setRequired(true))
       .addStringOption(option => option
         .setName("style")
-        .setDescription("The style of the image.").setRequired(true)
+        .setDescription("The style of the image.").setRequired(false)
         .addChoices(styles))
       .addStringOption(option => option
         .setName("aspect_ratio")
-        .setDescription("The aspect ratio of the image.").setRequired(true)
+        .setDescription("The aspect ratio of the image.").setRequired(false)
         .addChoices(aspectRatio)),
       
   
     async execute(interaction, member) {
       await interaction.deferReply();
       const text = interaction.options.getString("prompt");
-      const preset = interaction.options.getString("style");
-      const ratio = interaction.options.getString("aspect_ratio");
+      const style_preset = interaction.options.getString("style");
+      const aspect_ratio = interaction.options.getString("aspect_ratio");
       const result = await prodia.generateImage({
         prompt: text,
-        model: "absolutereality_v181.safetensors [3d9d4d2b]",
-        style_preset: preset,
-        aspect_ratio: ratio,
+        model: "juggernaut_aftermath.safetensors [5e20c455]",
+        style_preset: style_preset ? style_preset : 'enhance',
+        aspect_ratio: aspect_ratio ? aspect_ratio : 'square'
       })
       await interaction.editReply({ content: "Please wait while the image is being generated." })
       while (result.status !== "succeeded" && result.status !== "failed") {
@@ -43,7 +43,7 @@ module.exports = {
             return interaction.editReply(job.imageUrl);
         }
         if (job.status === "failed") {
-            return interaction.editReply("Failed to generate image.")
+            return interaction.followUp("Failed to generate image.")
         }
     } 
   }
