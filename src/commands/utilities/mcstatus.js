@@ -20,7 +20,7 @@ module.exports = {
         const embed = new EmbedBuilder()
           .setTitle(`🌍️ Minecraft Server Status`)
           .setThumbnail(`https://eu.mc-api.net/v3/server/favicon/${ip}`)
-          .setColor(config.client.errcolor)
+          .setColor(config.embed.color)
           .addFields([
             { name: "<:bot_ping:1216737658177327274>〡 IP", value: `\`\`\`${ip}\`\`\``, inline: true },
             { name: "<:home:1216737668092657765> 〡 Port", value: `\`\`\`${json.port}\`\`\``, inline: true },
